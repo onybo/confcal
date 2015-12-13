@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "jsx": "react"
+  },
+  "files": [
+    "app/entry.ts",
+    "app/components/Conference.tsx",
+    "typings/tsd.d.ts"
+  ]
+}

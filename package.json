@@ -1,0 +1,33 @@
+{
+  "name": "confcal",
+  "version": "0.0.1",
+  "description": "Conference calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onybo/confcal.git"
+  },
+  "author": "Olav Nybø",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onybo/confcal/issues"
+  },
+  "homepage": "https://github.com/onybo/confcal#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.0",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.7.2",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.3",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  }
+}
