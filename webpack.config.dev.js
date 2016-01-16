@@ -29,7 +29,7 @@ module.exports = {
       test: /\.tsx?$/,
       include: path.join(__dirname, 'app'),
       loaders: [
-        'babel?presets[]=es2015',
+        'babel',
         'ts-loader'
       ]
     }

@@ -12,7 +12,14 @@ export default class ConferenceList extends React.Component<ConferenceListProps,
 	render() {		
 		var conferences = this.props.conferences.map(function(conference) {
       		return (
-        		<Conference name={conference.name} />
+        		<Conference title={conference.title} 
+                        start={conference.start}
+                        end={conference.end}
+                        venue={conference.venue}
+                        city={conference.city}
+                        country={conference.country}
+                        url={conference.url}
+                        description={conference.description}/>
       		);
     	});
 		
