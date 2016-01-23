@@ -10,7 +10,7 @@
     "app/components/App.tsx",
     "app/components/Conference.tsx",
     "app/components/ConferenceList.tsx",
-    "app/componenet/Header.tsx",
+    "app/components/Header.tsx",
     "app/moment-ext.ts",
     "app/data/conferences.ts",
     "typings/tsd.d.ts"
