@@ -23,7 +23,7 @@ const Conference = (props:ConferenceProps) => {
   const start = Moment(props.start).format('MMMM D');
   const end = Moment(props.end).format('D');
   return (
-  <Card initiallyExpanded={true}>
+    <Card initiallyExpanded={false}>
         <CardHeader
           title={props.title}
           subtitle={`${start}-${end}`}
@@ -32,16 +32,9 @@ const Conference = (props:ConferenceProps) => {
         <CardText expandable={true}>
           {props.description}
         </CardText> 
-    <CardActions expandable={true}>
-      <FlatButton label="Action1"/>
-      <FlatButton label="Action2"/>
-    </CardActions>
-    <CardText expandable={true}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
+        <CardActions expandable={true}>
+          <FlatButton label="Action1"/>
+        </CardActions>
     </Card>
 );
 }
