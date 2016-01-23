@@ -22,7 +22,6 @@ export default class ConferenceList extends React.Component<ConferenceListProps,
 		
 		return (<div>
       {conferences}
-      <RaisedButton label="Default" />
       </div>);
 	}
 }
