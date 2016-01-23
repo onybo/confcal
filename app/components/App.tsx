@@ -9,6 +9,10 @@ export default class App extends React.Component<any, any> {
     super(props);
   }
 	render() {
-		return (<ConferenceList conferences={data.map(item => Object.assign(item, {key: item.id}))} />);
+		return (
+      <div style={{margin: '72px'}}>
+        <ConferenceList conferences={data.map(item => Object.assign(item, {key: item.id}))} />
+      </div>
+    );
 	}
 }
