@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
-    './app/index.ts'
+    './app/index.tsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),

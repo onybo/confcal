@@ -6,3 +6,7 @@
 /// <reference path='../node_modules/immutable/dist/immutable.d.ts'/>
 /// <reference path="material-ui.d.ts" />
 /// <reference path="react-tap-event-plugin.d.ts" />
+/// <reference path="redux-immutablejs.d.ts" />
+/// <reference path="redux.d.ts" />
+/// <reference path="../app/reducers.d.ts" />
+/// <reference path="react-redux.d.ts" />

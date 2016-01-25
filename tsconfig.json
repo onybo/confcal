@@ -6,11 +6,16 @@
     "jsx": "react"
   },
   "files": [
-    "app/index.ts",
+    "app/index.tsx",
     "app/components/App.tsx",
     "app/components/Conference.tsx",
     "app/components/ConferenceList.tsx",
     "app/components/Header.tsx",
+    "app/constants/actionTypes.ts",
+    "app/actions/conferenceActions.ts",
+    "app/reducers/conferences.ts",
+    "app/reducers/index.ts",
+    "app/store/configureStore.ts",
     "app/moment-ext.ts",
     "app/data/conferences.ts",
     "typings/tsd.d.ts"
