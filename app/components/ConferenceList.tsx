@@ -14,7 +14,7 @@ export default class ConferenceList extends React.Component<ConferenceListProps,
     super(props);
   } 
 	render() {		
-		var conferences = this.props.conferences.map(function(conference) {
+		var conferences = this.props.conferences.map((conference) => {
       		return (
         		<Conference {...conference}/>
       		);

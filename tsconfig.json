@@ -13,11 +13,12 @@
     "app/components/Header.tsx",
     "app/constants/actionTypes.ts",
     "app/actions/conferenceActions.ts",
-    "app/reducers/conferences.ts",
+    "app/reducers/conferenceState.ts",
     "app/reducers/index.ts",
     "app/store/configureStore.ts",
     "app/moment-ext.ts",
     "app/data/conferences.ts",
-    "typings/tsd.d.ts"
+    "typings/tsd.d.ts",
+    "app/reducers/conferenceState.spec.ts"    
   ]
 }

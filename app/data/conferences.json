@@ -1,6 +1,6 @@
 {
   "conferences" : {
-    "1": {
+    "K93hGKCh61z1aga34y6": {
       "title": "Fluent",
       "start": "2016-03-08",
       "end": "2016-03-10",
@@ -10,7 +10,7 @@
       "url": "http://conferences.oreilly.com/fluent/javascript-html-us",
       "description": "Practical training in JavaScript, HTML5, CSS, and the latest web development technologies and frameworks"
     },
-    "2": {
+    "K93hNf5i8A33FSDwjZ8": {
       "title": "QCon London",
       "start": "2016-03-07",
       "end": "2016-03-09",
@@ -20,7 +20,7 @@
       "url": "http://qconlondon.com/",
       "description": "A practitioner-driven conference, QCon is designed for technical team leads, architects, engineering directors, and project managers who influence innovation in their teams."
     },
-    "3": {
+    "K93hRssw39XimnlLpwl": {
       "title": "SmashingConf Oxford",
       "start": "2016-03-15",
       "end": "2016-03-16",
@@ -30,7 +30,7 @@
       "url": "http://smashingconf.com/",
       "description": "The conference will be packed with smart real-life solutions and techniques, ranging from frontend to design to UX — and a few delightful surprises along the way. Two days, one track, 14 brilliant speakers and 350 fantastic attendees."
     },
-    "4": {
+    "K93hVXjSDzIsp6bbADZ": {
       "title": "Build 2016",
       "start": "2016-03-30",
       "end": "2016-04-01",
@@ -40,7 +40,7 @@
       "url": "http://build.microsoft.com/",
       "description": "Microsoft continues to focus on enabling developers to do amazing work as businesses and industries transform in support of the shift to a cloud-first, mobile-first world. At Build 2016 we will present the latest tools and technologies and how they can help today’s developers be their most creative and productive. "
     },
-    "5": {
+    "K93hZ9U955UHft2KF0": {
       "title": "ncrafts 2016",
       "start": "2016-05-12",
       "end": "2016-05-13",
@@ -50,7 +50,7 @@
       "url": "http://ncrafts.io/",
       "description": "Professional Developer's conference"
     },
-    "6": {
+    "K93haqWg6mPXvfYJGay": {
       "title": "NDC Sydney",
       "start": "2016-08-01",
       "end": "2016-08-05",
@@ -60,7 +60,7 @@
       "url": "http://ndcsydney.com/",
       "description": "NDC Sydney will have the same format as its European sisters NDC Oslo and NDC London with 2 days of workshops and 3 days of conference sessions"
     },
-    "7": {
+    "K93hdggGv7YTOT04qEZ": {
       "title": "Trondheim Developer Conference",
       "start": "2016-10-31",
       "end": "2016-10-31",

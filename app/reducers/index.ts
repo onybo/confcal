@@ -1,5 +1,5 @@
-import conferences from './conferences';
+import conferenceState from './conferenceState';
 
 export {
-  conferences
+  conferenceState
 };

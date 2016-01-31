@@ -1,13 +1,17 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux-immutablejs';
-import {fromJS} from 'immutable';
+import thunkMiddleware from 'redux-thunk';
+import {Map} from 'immutable';
 import * as reducers from '../reducers';
 import data from '../data/conferences';
 
 declare var module;
 
 const reducer = combineReducers(reducers);
-const state = fromJS({conferences: data.map(item => Object.assign(item, {key: item.id})), testing: true});
+const state = Map({
+    conferences: Map(<any>{}),
+    loading: false
+  });
 const store = reducer(state);
 
 if (module.hot) {
@@ -18,4 +22,10 @@ if (module.hot) {
   });
 }
 
-export default createStore(reducer, store);
+console.dir(thunkMiddleware);
+const createStoreWithMiddleware = applyMiddleware(
+  thunkMiddleware
+)(createStore);
+
+
+export default createStoreWithMiddleware(reducer, store);

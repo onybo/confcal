@@ -3,10 +3,14 @@
 /// <reference path="react/react-dom.d.ts" />
 /// <reference path="moment/moment-node.d.ts" />
 /// <reference path="moment/moment.d.ts" />
-/// <reference path='../node_modules/immutable/dist/immutable.d.ts'/>
+/// <reference path="../node_modules/immutable/dist/immutable.d.ts" />
 /// <reference path="material-ui.d.ts" />
 /// <reference path="react-tap-event-plugin.d.ts" />
 /// <reference path="redux-immutablejs.d.ts" />
 /// <reference path="redux.d.ts" />
 /// <reference path="../app/reducers.d.ts" />
 /// <reference path="react-redux.d.ts" />
+/// <reference path="redux-thunk.d.ts" />
+/// <reference path="firebase/firebase.d.ts" />
+/// <reference path="assertion-error/assertion-error.d.ts" />
+/// <reference path="chai/chai.d.ts" />

@@ -1,6 +1,5 @@
 import * as React from 'react'; 
 import * as ReactDOM from 'react-dom';
-import data from '../data/conferences';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,7 +17,7 @@ export class App extends React.Component<any, any> {
       <div>
         <Header />
         <div style={{margin: '72px'}}>
-          <ConferenceList conferences={this.props.conferences.toJS()} />
+          <ConferenceList conferences={this.props.conferences.toArray()} />
         </div>
       </div>
     );
@@ -26,8 +25,10 @@ export class App extends React.Component<any, any> {
 }
 
 function mapStateToProps(state) {
-  return {
-    conferences: state.get('conferences').map(item => item.merge({key: item.get('id')}))
+  return {    
+    conferences: state
+                  .getIn(['conferenceState', 'conferences'])
+                  .mapEntries(([k,item]) => [k, Object.assign({}, item, {key: k})])
   };
 }
 
