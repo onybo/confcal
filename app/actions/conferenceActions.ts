@@ -24,3 +24,15 @@ export const loadConferences = () => {
     return { type: types.LOADING_CONFERENCES };
   };     
 }
+
+export const addConferenceDialogOpen = () => {
+  return { type: types.ADD_CONFERENCE_DIALOG, open: true}
+}
+
+export const addConferenceDialogClose = () => {
+  return { type: types.ADD_CONFERENCE_DIALOG, open: false}
+}
+
+export const addConferenceFieldChanged = (field, value) => {
+  return { type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field, value}
+}

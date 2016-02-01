@@ -17,7 +17,10 @@ export class App extends React.Component<any, any> {
       <div>
         <Header />
         <div style={{margin: '72px'}}>
-          <ConferenceList conferences={this.props.conferences.toArray()} />
+          <ConferenceList 
+            conferences={this.props.conferences.toArray()}
+            addConference={this.props.addConference} 
+            actions={this.props.actions} />
         </div>
       </div>
     );
@@ -25,10 +28,12 @@ export class App extends React.Component<any, any> {
 }
 
 function mapStateToProps(state) {
+  console.dir(state.toJS());
   return {    
     conferences: state
                   .getIn(['conferenceState', 'conferences'])
-                  .mapEntries(([k,item]) => [k, Object.assign({}, item, {key: k})])
+                  .mapEntries(([k,item]) => [k, Object.assign({}, item, {key: k})]),
+    addConference: state.get('addConferenceState')
   };
 }
 
