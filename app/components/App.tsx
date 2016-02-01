@@ -8,26 +8,19 @@ import Header from './Header';
 import ConferenceList from './ConferenceList';
 import * as conferenceActions from '../actions/conferenceActions';
  
-export class App extends React.Component<any, any> {
-	constructor(props: any) {
-    super(props);
-  }
-	render() {
-		return (
-      <div>
-        <Header />
-        <div style={{margin: '72px'}}>
-          <ConferenceList 
-            conferences={this.props.conferences.toArray()}
-            addConference={this.props.addConference} 
-            actions={this.props.actions} />
-        </div>
-      </div>
-    );
-	}
-}
+const App = (props) => (
+  <div>
+    <Header />
+    <div style={{margin: '72px'}}>
+      <ConferenceList 
+        conferences={props.conferences.toArray()}
+        addConference={props.addConference} 
+        actions={props.actions} />
+    </div>
+  </div>
+);
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   console.dir(state.toJS());
   return {    
     conferences: state
@@ -37,11 +30,8 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(conferenceActions, dispatch)
-  };
-}
+const mapDispatchToProps = (dispatch) => 
+   ( {actions: bindActionCreators(conferenceActions, dispatch) });
 
 export default connect(
   mapStateToProps,

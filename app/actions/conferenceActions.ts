@@ -3,9 +3,9 @@ import Firebase from 'firebase';
 
 const dbRef = new Firebase("https://confcal.firebaseio.com/");
 
-const conferencesLoaded = (conferences) => {
-  return { type: types.CONFERENCES_LOADED, conferences};
-}
+const conferencesLoaded = (conferences) => 
+  ( { type: types.CONFERENCES_LOADED, conferences} );
+
 
 const login = () => 
   (dispatch, getState) => { 
@@ -17,11 +17,11 @@ const login = () =>
         dispatch({ type: types.LOGGED_IN, authData });
       }
     });
-  }  
+  };  
 
 
-export const loadConferences = () => {
-	return (dispatch, getState) => {
+export const loadConferences = () => 
+	(dispatch, getState) => {
     dbRef.child("conferences").once("value", 
         snapshot => {
           console.dir(snapshot.val());
@@ -31,16 +31,16 @@ export const loadConferences = () => {
     );
     return { type: types.LOADING_CONFERENCES };
   };     
-}
 
-export const addConferenceDialogOpen = () => {
-  return { type: types.ADD_CONFERENCE_DIALOG, open: true}
-}
 
-export const addConferenceDialogClose = () => {
-  return { type: types.ADD_CONFERENCE_DIALOG, open: false}
-}
+export const addConferenceDialogOpen = () => 
+  ( { type: types.ADD_CONFERENCE_DIALOG, open: true} );
 
-export const addConferenceFieldChanged = (field, value) => {
-  return { type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field, value}
-}
+export const addConferenceDialogClose = () => 
+  ( { type: types.ADD_CONFERENCE_DIALOG, open: false} );
+
+export const addConferenceFieldChanged = (field, value) => 
+  ({ type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field, value});
+
+export const submitNewConference = () => 
+  ( { type: types.SUBMIT_NEW_CONFERENCE } );
