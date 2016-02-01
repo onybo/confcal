@@ -1,20 +1,28 @@
 import * as types from '../constants/ActionTypes';
 import Firebase from 'firebase';
 
+const dbRef = new Firebase("https://confcal.firebaseio.com/");
 
 const conferencesLoaded = (conferences) => {
   return { type: types.CONFERENCES_LOADED, conferences};
 }
 
+const login = () => 
+  (dispatch, getState) => { 
+    dbRef.authWithOAuthPopup("google", (error, authData) => {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        dispatch({ type: types.LOGGED_IN, authData });
+      }
+    });
+  }  
+
+
 export const loadConferences = () => {
-  console.log('loadConferences');
 	return (dispatch, getState) => {
-    console.log('inside dispatch');
-    var ref = new Firebase("https://confcal.firebaseio.com/");
-    // let newref = ref.push();
-    // console.dir(newref.key());
-    // newref.set({foo: 'bar'});
-    ref.child("conferences").once("value", 
+    dbRef.child("conferences").once("value", 
         snapshot => {
           console.dir(snapshot.val());
           dispatch(conferencesLoaded(snapshot.val()));
