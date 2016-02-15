@@ -19,14 +19,20 @@ export interface ConferenceProps {
   description: string; 
 }
 
+const endAsString = (start, end) => (
+   start.month() === end.month() ?  
+    end.format('D') : 
+    end.format('MMMM D')
+)
+
 const Conference = (props:ConferenceProps) => {
   const start = Moment(props.start).format('MMMM D');
-  const end = Moment(props.end).format('D');
+   
   return (
     <Card initiallyExpanded={false}>
         <CardHeader
           title={props.title}
-          subtitle={`${start}-${end}`}
+          subtitle={`${start}-${endAsString(Moment(props.start), Moment(props.end))}`}
           actAsExpander={true}
           showExpandableButton={true} />
         <CardText expandable={true}>
