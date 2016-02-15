@@ -35,7 +35,10 @@ export const loadConferences = () =>
 
 export const addConferenceDialogOpen = () => 
   ( { type: types.ADD_CONFERENCE_DIALOG, open: true} );
-
+  
+export const addConferenceDialogClose = () => 
+  ( { type: types.ADD_CONFERENCE_DIALOG, open: false} );
+  
 export const addConferenceFieldChanged = (field, value) => 
   ({ type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field, value});
 
