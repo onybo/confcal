@@ -6,6 +6,7 @@ import CardActions from 'material-ui/lib/card/card-actions';
 import CardHeader from 'material-ui/lib/card/card-header';
 import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
+import TextField from 'material-ui/lib/text-field';
 
 export interface ConferenceProps {
   key: number;
@@ -37,9 +38,10 @@ const Conference = (props:ConferenceProps) => {
           showExpandableButton={true} />
         <CardText expandable={true}>
           {props.description}
+          
         </CardText> 
         <CardActions expandable={true}>
-          <FlatButton label="Action1"/>
+          <FlatButton label="Goto conference web site" linkButton={true} href={props.url} secondary={true}/>
         </CardActions>
     </Card>
 );

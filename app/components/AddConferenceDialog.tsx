@@ -79,7 +79,16 @@ const AddConferenceDialog = (props:AddConferenceDialogProps) => {
               style={{marginLeft: '20px'}}
               onChange={fieldChange}
             />
-          </div>          
+          </div>     
+          <TextField
+            hintText="URL"
+            floatingLabelText="Url"
+            id="url"
+            value={props.conference.get('url')}
+            fullWidth={true}
+            style={{display: 'block'}}
+            onChange={fieldChange}
+          />     
           <TextField
             hintText="Description"
             floatingLabelText="Description"
