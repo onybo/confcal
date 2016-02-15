@@ -1,10 +1,11 @@
 import * as types from '../constants/ActionTypes';
 import Firebase from 'firebase';
+import * as Moment from 'moment';
 
-const dbRef = new Firebase("https://confcal.firebaseio.com/");
+const dbRef = new Firebase("https://confcal.firebaseio.com/conferences");
 
-const conferencesLoaded = (conferences) => 
-  ( { type: types.CONFERENCES_LOADED, conferences} );
+const conferenceLoaded = (key, conference) => 
+  ( { type: types.CONFERENCE_LOADED, key, conference} );
 
 
 const login = () => 
@@ -22,25 +23,36 @@ const login = () =>
 
 export const loadConferences = () => 
 	(dispatch, getState) => {
-    dbRef.child("conferences").once("value", 
+    dbRef.orderByChild("start").on("child_added", 
         snapshot => {
           console.dir(snapshot.val());
-          dispatch(conferencesLoaded(snapshot.val()));
+          dispatch(conferenceLoaded(snapshot.key(), snapshot.val()));
         },
         error => console.dir(error)
     );
-    return { type: types.LOADING_CONFERENCES };
+    dispatch( { type: types.LOADING_CONFERENCES } );
   };     
-
 
 export const addConferenceDialogOpen = () => 
   ( { type: types.ADD_CONFERENCE_DIALOG, open: true} );
 
-export const addConferenceDialogClose = () => 
-  ( { type: types.ADD_CONFERENCE_DIALOG, open: false} );
-
 export const addConferenceFieldChanged = (field, value) => 
   ({ type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field, value});
 
-export const submitNewConference = () => 
-  ( { type: types.SUBMIT_NEW_CONFERENCE } );
+export const submitNewConference = () => {
+	return (dispatch, getState) => {
+    let conference = getState().getIn(['addConferenceState', 'conference']).toJS();
+    conference.start = Moment.default(conference.start).format('YYYY-MM-DD')
+    conference.end = Moment.default(conference.end).format('YYYY-MM-DD')
+    //console.dir(conference);
+    dbRef.push(conference)      
+    .then((ref) => ( 
+        dispatch(conferenceLoaded(ref.key(), conference ))
+      )  
+      ,(error) => {
+      console.log('failed to submit conference');
+      console.dir(error);
+    });
+    dispatch({ type: types.ADD_CONFERENCE_DIALOG, open: false});
+  }  
+}

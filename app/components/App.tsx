@@ -21,7 +21,6 @@ const App = (props) => (
 );
 
 const mapStateToProps = (state) => {
-  console.dir(state.toJS());
   return {    
     conferences: state
                   .getIn(['conferenceState', 'conferences'])

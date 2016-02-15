@@ -18,7 +18,7 @@ const AddConferenceDialog = (props:AddConferenceDialogProps) => {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={props.actions.addConferenceDialogClose}
+        onTouchTap={props.actions.submitNewConference}
       />,
     ];
     
@@ -26,6 +26,12 @@ const AddConferenceDialog = (props:AddConferenceDialogProps) => {
     const {id, value} = event.target;
     props.actions.addConferenceFieldChanged(id, value);
   }
+  
+  const dateChange = (fieldName) => (
+    (ignored, aDate) => (
+      props.actions.addConferenceFieldChanged(fieldName, aDate) 
+    ) 
+  )  
   
   return (
     <div>
@@ -88,11 +94,15 @@ const AddConferenceDialog = (props:AddConferenceDialogProps) => {
               hintText="Start date"
               autoOk={true} 
               formatDate={(date) => Moment.default(date).format('YYYY-MM-DD')} 
+              value={props.conference.get('start')}
+              onChange={dateChange('start')}
               />
             <DatePicker 
               hintText="End date"
               autoOk={true} 
               formatDate={(date) => Moment.default(date).format('YYYY-MM-DD')}
+              value={props.conference.get('end')}
+              onChange={dateChange('end')}
               />
           </div>          
         </Dialog>

@@ -25,12 +25,14 @@ export default function addConferenceState(state = initialState, action) {
       }));
     
     case ADD_CONFERENCE_DIALOG:
-      return state.merge(Map({        
-        open: action.open
-      }));
+      return state.merge({        
+        open: action.open,
+        conference: Map({
+          verified: false
+        })
+      });
     
     case ADD_CONFERENCE_DIALOG_FIELD_CHANGED:
-      console.dir(state.get('conference').toJS());
       return state.setIn(['conference', action.field], action.value);  
       
 		default:

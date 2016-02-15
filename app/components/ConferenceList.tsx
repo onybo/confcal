@@ -16,7 +16,6 @@ export interface ConferenceListProps {
 const ConferenceList = (props: ConferenceListProps) => {
     
   const conferences = props.conferences.map((conference) => <Conference {...conference}/>);
-  console.dir(props.addConference);
   
   return (
     <div>

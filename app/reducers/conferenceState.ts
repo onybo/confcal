@@ -1,9 +1,9 @@
-import {LOADING_CONFERENCES, CONFERENCES_LOADED} from '../constants/ActionTypes';
+import * as types from '../constants/ActionTypes';
 
 import { createReducer } from 'redux-immutablejs';
-import {Map} from 'immutable';
+import {Map, OrderedMap} from 'immutable';
 const initialState = Map({
-    conferences: Map(<any>{}),
+    conferences: OrderedMap(<any>{}),
     loading: false
   });
 
@@ -11,15 +11,14 @@ export default function conferenceState(state = initialState, action) {
   if (!action)
     return state;
 	switch (action.type) {
-		case LOADING_CONFERENCES:
-			return state.merge(Map({loading: true}));;
+		case types.LOADING_CONFERENCES:
+			return state.merge({loading: true});;
 
-		case CONFERENCES_LOADED:
-      return state.merge(Map({
-        conferences: Map(action.conferences),
+		case types.CONFERENCE_LOADED:
+      const newState = state.setIn(['conferences', action.key], action.conference)
+      return newState.merge({
         loading: false
-      }));
-
+      });
 		default:
 			return state;
 	}

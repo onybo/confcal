@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import reducer from './conferenceState';
-import {LOADING_CONFERENCES, CONFERENCES_LOADED} from '../constants/actionTypes';
+import * as types from '../constants/actionTypes';
 import {Map} from 'immutable';
 
 declare var describe;
@@ -37,7 +37,7 @@ describe('Conference reducer', () => {
         venue: "The Queen Elizabeth II Conference Centre",        
       }
     };
-    let state = reducer(undefined, {type: CONFERENCES_LOADED, conferences});
+    let state = reducer(undefined, {type: types.CONFERENCE_LOADED, conferences});
     expect(state).to.eql(Map({
       conferences: Map({
         K93hGKCh61z1aga34y6: {
@@ -65,7 +65,7 @@ describe('Conference reducer', () => {
     }));       
   });
   it('loading conferenes sets loading state to true', () => {
-      let state = reducer(undefined, { type: LOADING_CONFERENCES });
+      let state = reducer(undefined, { type: types.LOADING_CONFERENCES });
       expect(state.get('loading')).to.equal(true);
   });     
 });
