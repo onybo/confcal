@@ -27,11 +27,13 @@ const AddConferenceDialog = (props:AddConferenceDialogProps) => {
     props.actions.addConferenceFieldChanged(id, value);
   }
   
-  const dateChange = (fieldName) => (
-    (ignored, aDate) => (
-      props.actions.addConferenceFieldChanged(fieldName, aDate) 
-    ) 
-  )  
+  const startChange = (ignored, aDate) => (
+    props.actions.addConferenceStartChanged(aDate)
+  )
+  
+  const endChange = (ignored, aDate) => (
+      props.actions.addConferenceFieldChanged('end', aDate) 
+  )   
   
   return (
     <div>
@@ -95,14 +97,14 @@ const AddConferenceDialog = (props:AddConferenceDialogProps) => {
               autoOk={true} 
               formatDate={(date) => Moment.default(date).format('YYYY-MM-DD')} 
               value={props.conference.get('start')}
-              onChange={dateChange('start')}
+              onChange={startChange}
               />
             <DatePicker 
               hintText="End date"
               autoOk={true} 
               formatDate={(date) => Moment.default(date).format('YYYY-MM-DD')}
               value={props.conference.get('end')}
-              onChange={dateChange('end')}
+              onChange={endChange}
               />
           </div>          
         </Dialog>

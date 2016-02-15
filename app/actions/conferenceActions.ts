@@ -39,6 +39,9 @@ export const addConferenceDialogOpen = () =>
 export const addConferenceFieldChanged = (field, value) => 
   ({ type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field, value});
 
+export const addConferenceStartChanged = (start) => 
+  ({ type: types.ADD_CONFERENCE_DIALOG_START_CHANGED, start});
+
 export const submitNewConference = () => {
 	return (dispatch, getState) => {
     let conference = getState().getIn(['addConferenceState', 'conference']).toJS();
