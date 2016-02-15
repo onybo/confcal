@@ -21762,7 +21762,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.submitNewConference = exports.addConferenceStartChanged = exports.addConferenceFieldChanged = exports.addConferenceDialogOpen = exports.loadConferences = undefined;
+	exports.submitNewConference = exports.addConferenceStartChanged = exports.addConferenceFieldChanged = exports.addConferenceDialogClose = exports.addConferenceDialogOpen = exports.loadConferences = undefined;
 	
 	var _ActionTypes = __webpack_require__(185);
 	
@@ -21809,6 +21809,9 @@
 	};
 	var addConferenceDialogOpen = exports.addConferenceDialogOpen = function addConferenceDialogOpen() {
 	    return { type: types.ADD_CONFERENCE_DIALOG, open: true };
+	};
+	var addConferenceDialogClose = exports.addConferenceDialogClose = function addConferenceDialogClose() {
+	    return { type: types.ADD_CONFERENCE_DIALOG, open: false };
 	};
 	var addConferenceFieldChanged = exports.addConferenceFieldChanged = function addConferenceFieldChanged(field, value) {
 	    return { type: types.ADD_CONFERENCE_DIALOG_FIELD_CHANGED, field: field, value: value };
