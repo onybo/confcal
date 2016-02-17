@@ -7,6 +7,8 @@ const dbRef = new Firebase("https://confcal.firebaseio.com/conferences");
 const conferenceLoaded = (key, conference) => 
   ( { type: types.CONFERENCE_LOADED, key, conference} );
 
+const conferencesLoaded = (conferences) => 
+  ( { type: types.CONFERENCES_LOADED, conferences} );
 
 const login = () => 
   (dispatch, getState) => { 
@@ -23,11 +25,9 @@ const login = () =>
 
 export const loadConferences = () => 
 	(dispatch, getState) => {
-    dbRef.orderByChild("start").on("child_added", 
-        snapshot => {
-          console.dir(snapshot.val());
-          dispatch(conferenceLoaded(snapshot.key(), snapshot.val()));
-        },
+    dbRef.once("value", 
+        snapshot => dispatch(conferencesLoaded(snapshot.val()))
+        ,
         error => console.dir(error)
     );
     dispatch( { type: types.LOADING_CONFERENCES } );
