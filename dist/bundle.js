@@ -21784,6 +21784,9 @@
 	var conferenceLoaded = function conferenceLoaded(key, conference) {
 	    return { type: types.CONFERENCE_LOADED, key: key, conference: conference };
 	};
+	var conferencesLoaded = function conferencesLoaded(conferences) {
+	    return { type: types.CONFERENCES_LOADED, conferences: conferences };
+	};
 	var login = function login() {
 	    return function (dispatch, getState) {
 	        dbRef.authWithOAuthPopup("google", function (error, authData) {
@@ -21798,9 +21801,8 @@
 	};
 	var loadConferences = exports.loadConferences = function loadConferences() {
 	    return function (dispatch, getState) {
-	        dbRef.orderByChild("start").on("child_added", function (snapshot) {
-	            console.dir(snapshot.val());
-	            dispatch(conferenceLoaded(snapshot.key(), snapshot.val()));
+	        dbRef.once("value", function (snapshot) {
+	            return dispatch(conferencesLoaded(snapshot.val()));
 	        }, function (error) {
 	            return console.dir(error);
 	        });
@@ -21846,6 +21848,7 @@
 	});
 	var LOADING_CONFERENCES = exports.LOADING_CONFERENCES = 'LOADING_CONFERENCES';
 	var CONFERENCE_LOADED = exports.CONFERENCE_LOADED = 'CONFERENCE_LOADED';
+	var CONFERENCES_LOADED = exports.CONFERENCES_LOADED = 'CONFERENCES_LOADED';
 	var ADDING_CONFERENCE = exports.ADDING_CONFERENCE = 'ADDING_CONFERENCE';
 	var CONFERENCES_ADDED = exports.CONFERENCES_ADDED = 'CONFERENCES_ADDED';
 	var ADD_CONFERENCE_DIALOG = exports.ADD_CONFERENCE_DIALOG = 'ADD_CONFERENCE_DIALOG';
@@ -55390,12 +55393,21 @@
 	
 	var _immutable = __webpack_require__(418);
 	
+	var _moment = __webpack_require__(187);
+	
+	var Moment = _interopRequireWildcard(_moment);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	var initialState = (0, _immutable.Map)({
 	    conferences: (0, _immutable.OrderedMap)({}),
 	    loading: false
 	});
+	var byConferenceStart = function byConferenceStart(conferenceA, conferenceB) {
+	    var startA = Moment.default(conferenceA.start);
+	    var startB = Moment.default(conferenceB.start);
+	    return startA.isBefore(startB) ? -1 : startA.isAfter(startB) ? 1 : 0;
+	};
 	function conferenceState() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
 	    var action = arguments[1];
@@ -55406,8 +55418,16 @@
 	            return state.merge({ loading: true });
 	            ;
 	        case types.CONFERENCE_LOADED:
-	            var newState = state.setIn(['conferences', action.key], action.conference);
+	            var newState = (0, _immutable.OrderedMap)(state.setIn(['conferences', action.key], action.conference));
 	            return newState.merge({
+	                conferences: newState.get('conferences').sort(byConferenceStart),
+	                loading: false
+	            });
+	        case types.CONFERENCES_LOADED:
+	            console.log("CONFERENCES_LOADED");
+	            var conferences = (0, _immutable.OrderedMap)(action.conferences).sort(byConferenceStart);
+	            return state.merge({
+	                conferences: conferences,
 	                loading: false
 	            });
 	        default:
