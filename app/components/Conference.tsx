@@ -7,6 +7,7 @@ import CardHeader from 'material-ui/lib/card/card-header';
 import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 import TextField from 'material-ui/lib/text-field';
+import Colors from 'material-ui/lib/styles/colors';
 
 export interface ConferenceProps {
   key: number;
@@ -18,6 +19,7 @@ export interface ConferenceProps {
   country: string;
   url: string;
   description: string; 
+  tickets: string;
 }
 
 const endAsString = (start, end) => (
@@ -26,8 +28,21 @@ const endAsString = (start, end) => (
     end.format('MMMM D')
 )
 
+
 const Conference = (props:ConferenceProps) => {
   const start = Moment(props.start).format('MMMM D');
+
+  const ConferenceDetailField = (props) => (
+      <TextField
+          floatingLabelText={props.label}
+          id={props.label.toLowerCase()}
+          value={props.value}
+          disabled={true}
+          underlineStyle={{borderBottomStyle: 'solid', borderBottomWidth: '1px'}}
+          inputStyle={{color: Colors.black}}
+          style={{marginRight: '20px'}}
+      />        
+  )
    
   return (
     <Card initiallyExpanded={false}>
@@ -37,7 +52,13 @@ const Conference = (props:ConferenceProps) => {
           actAsExpander={true}
           showExpandableButton={true} />
         <CardText expandable={true}>
-          {props.description}
+          <ConferenceDetailField label='Venue' value={props.venue}  />
+          <ConferenceDetailField label='City' value={props.city} />
+          <ConferenceDetailField label='Country' value={props.country} />
+                    
+          <div style={{marginTop: '20px'}}>
+            {props.description}
+          </div>
           
         </CardText> 
         <CardActions expandable={true}>
