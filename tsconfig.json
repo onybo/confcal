@@ -5,22 +5,12 @@
     "sourceMap": true,
     "jsx": "react"
   },
-  "files": [
-    "app/index.tsx",
-    "app/components/App.tsx",
-    "app/components/Conference.tsx",
-    "app/components/ConferenceList.tsx",
-    "app/components/Header.tsx",
-    "app/components/AddConferenceDialog.tsx",
-    "app/constants/actionTypes.ts",
-    "app/actions/conferenceActions.ts",
-    "app/reducers/conferenceState.ts",
-    "app/reducers/addConferenceState.ts",
-    "app/reducers/index.ts",
-    "app/store/configureStore.ts",
-    "app/moment-ext.ts",
-    "app/data/conferences.ts",
-    "typings/tsd.d.ts",
-    "app/reducers/conferenceState.spec.ts"    
-  ]
+  "exclude": [
+        "node_modules",
+        "dist",
+        "images",
+        "styles",
+        "testing",
+        "typings/moment-node.d.ts"
+    ]
 }

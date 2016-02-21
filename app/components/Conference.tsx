@@ -8,6 +8,8 @@ import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 import TextField from 'material-ui/lib/text-field';
 import Colors from 'material-ui/lib/styles/colors';
+import IconButton from 'material-ui/lib/icon-button';
+import {Flag} from './flags/Index';
 
 export interface ConferenceProps {
   key: number;
@@ -28,7 +30,6 @@ const endAsString = (start, end) => (
     end.format('MMMM D')
 )
 
-
 const Conference = (props:ConferenceProps) => {
   const start = Moment(props.start).format('MMMM D');
 
@@ -43,15 +44,21 @@ const Conference = (props:ConferenceProps) => {
           style={{marginRight: '20px'}}
       />        
   )
-   
+  
   return (
-    <Card initiallyExpanded={false}>
+    <Card initiallyExpanded={false} >
         <CardHeader
           title={props.title}
           subtitle={`${start}-${endAsString(Moment(props.start), Moment(props.end))}`}
           actAsExpander={true}
-          showExpandableButton={true} />
-        <CardText expandable={true}>
+          showExpandableButton={true} textStyle={{minWidth: '200px'}}
+          style={{background: '#eef3f6' }}> 
+          <IconButton style={{float: 'right', marginRight: '30px'}}>
+            <Flag country={props.country} />
+          </IconButton> 
+        </CardHeader>
+        <CardText expandable={true} >
+          
           <ConferenceDetailField label='Venue' value={props.venue}  />
           <ConferenceDetailField label='City' value={props.city} />
           <ConferenceDetailField label='Country' value={props.country} />
