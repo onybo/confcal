@@ -3,9 +3,10 @@ import * as types from '../constants/ActionTypes';
 import { createReducer } from 'redux-immutablejs';
 import {Map, OrderedMap, Iterable} from 'immutable';
 import * as Moment from 'moment';
+import initialConferences from './initialConferences';
 
 const initialState = Map({
-    conferences: OrderedMap<string, any>(<any>{}),
+    conferences: OrderedMap<string, any>(<any>initialConferences),
     loading: false
   });
 

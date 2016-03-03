@@ -4,7 +4,6 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
     'babel-polyfill',
     './app/index.tsx'
   ],
