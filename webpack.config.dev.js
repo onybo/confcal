@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
+    'babel-polyfill',
     'webpack-hot-middleware/client',
     './app/index.tsx'
   ],

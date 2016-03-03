@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
+    'babel-polyfill',
     './app/index.tsx'
   ],
   output: {
@@ -16,7 +17,8 @@ module.exports = {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.tsx']
   },
   plugins: [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   module: {
     loaders: [{ 
