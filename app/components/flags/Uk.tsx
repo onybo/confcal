@@ -6,8 +6,8 @@ import SvgIcon from 'material-ui/lib/svg-icon';
 
 const Uk = (props) => (
   <SvgIcon viewBox="0 0 640 480" {...props}>
-    <g clip-path="url(#a)" transform="matrix(.94 0 0 .94 80 0)">
-      <g stroke-width="1pt">
+    <g clipPath="url(#a)" transform="matrix(.94 0 0 .94 80 0)">
+      <g strokeWidth="1pt">
         <path fill="#006" d="M-256 0H768.02v512.01H-256z"/>
         <path d="M-256 0v57.244l909.535 454.768H768.02V454.77L-141.515 0H-256zM768.02 0v57.243L-141.515 512.01H-256v-57.243L653.535 0H768.02z" fill="#fff"/>
         <path d="M170.675 0v512.01h170.67V0h-170.67zM-256 170.67v170.67H768.02V170.67H-256z" fill="#fff"/>

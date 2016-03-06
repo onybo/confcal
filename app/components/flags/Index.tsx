@@ -3,6 +3,7 @@ import Bulgaria from './Bulgaria';
 import France from './France';
 import Hungary from './Hungary';
 import Iceland from './Iceland';
+import Israel from './Israel';
 import Italy from './Italy';
 import Lithuania from './Lithuania';
 import Netherlands from './Netherlands';
@@ -30,6 +31,7 @@ export const flagMap = Map(
     France: (<France />),
     Hungary: (<Hungary />),
     Iceland: (<Iceland />),
+    Israel: (<Israel />),    
     Italy: (<Italy />),
     Lithuania: (<Lithuania />),
     Netherlands: (<Netherlands />),

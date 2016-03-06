@@ -6,8 +6,8 @@ import SvgIcon from 'material-ui/lib/svg-icon';
 
 const SouthAfrica = (props) => (
   <SvgIcon viewBox="0 0 640 480" {...props}>
-    <g id="flag" clip-path="url(#clipPath3532)" transform="matrix(.93748 0 0 .93748 67.379 .011488)">
-      <g id="g603" fill-rule="evenodd" stroke-width="1pt" transform="matrix(2.0478 0 0 2.0484 -148.57 -1592.2)">
+    <g id="flag" clipPath="url(#clipPath3532)" transform="matrix(.93748 0 0 .93748 67.379 .011488)">
+      <g id="g603" fill-rule="evenodd" strokeWidth="1pt" transform="matrix(2.0478 0 0 2.0484 -148.57 -1592.2)">
       <path id="path581" d="m37.451 976.39v-148.12l110.28 74.022-110.28 74.103z"/>
       <path id="path597" d="m112.7 1027.3 123.81-83.306h175.98v83.306h-299.79z" fill="#00c"/>
       <path id="path598" d="m104.74 777.32 307.74 0.006v83.32h-175.98s-130.11-84.15-131.76-83.326z" fill="#f00"/>

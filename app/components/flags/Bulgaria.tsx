@@ -6,7 +6,7 @@ import SvgIcon from 'material-ui/lib/svg-icon';
 
 const Bulgaria = (props) => (
   <SvgIcon viewBox="0 0 640 480" {...props}>
-    <g fill-rule="evenodd" stroke-width="1pt">
+    <g fill-rule="evenodd" strokeWidth="1pt">
       <path fill="#de2110" d="M0 319.997h640V480H0z"/>
       <path fill="#fff" d="M0 0h640v160.003H0z"/>
       <path fill="#319400" d="M0 160.003h640v160.003H0z"/>
