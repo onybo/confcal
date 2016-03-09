@@ -1,31 +1,23 @@
 import { createStore, applyMiddleware } from 'redux';
-import { combineReducers } from 'redux-immutablejs';
 import thunkMiddleware from 'redux-thunk';
-import {Map} from 'immutable';
-import * as reducers from '../reducers';
-import data from '../data/conferences';
+import rootReducer from '../reducers';
 
 declare var module;
 
-const reducer = combineReducers(reducers);
-const state = Map({
-    conferences: Map(<any>{}),
-    loading: false
-  });
-const store = reducer(state);
+export default function configureStore(initialState) {
+  const store = createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(thunkMiddleware)
+  );
 
-if (module.hot) {
-  // Enable Webpack hot module replacement for reducers
-  module.hot.accept('../reducers', () => {
-    const nextReducer = require('../reducers');
-    store.replaceReducer(<() => void>nextReducer);
-  });
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers').default
+      store.replaceReducer(nextRootReducer)
+    })
+  }
+
+  return store
 }
-
-console.dir(thunkMiddleware);
-const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware
-)(createStore);
-
-
-export default createStoreWithMiddleware(reducer, store);

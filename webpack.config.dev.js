@@ -18,8 +18,7 @@ module.exports = {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.tsx']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [{ 

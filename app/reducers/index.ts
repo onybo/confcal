@@ -1,7 +1,10 @@
+import { combineReducers } from 'redux-immutablejs';
 import conferenceState from './conferenceState';
 import addConferenceState from './addConferenceState';
 
-export {
+const rootReducer = combineReducers({
   conferenceState,
-  addConferenceState,
-};
+  addConferenceState
+})
+
+export default rootReducer
