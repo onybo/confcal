@@ -1,10 +1,16 @@
 import Australia from './Australia';
+import Argentina from './Argentina';
+import Belgium from './Belgium';
 import Bulgaria from './Bulgaria';
+import Canada from './Canada';
+import Denmark from './Denmark';
 import France from './France';
+import Germany from './Germany';
 import Hungary from './Hungary';
 import Iceland from './Iceland';
 import Israel from './Israel';
 import Italy from './Italy';
+import Japan from './Japan';
 import Lithuania from './Lithuania';
 import Netherlands from './Netherlands';
 import Norway from './Norway';
@@ -27,12 +33,18 @@ const valueOrDefault = (value) =>
 export const flagMap = Map(
   {
     Australia: (<Australia />),
+    Argentina: (<Argentina />),
     Bulgaria: (<Bulgaria />),
+    Belgium: (<Belgium />),
+    Canada: (<Canada />),
+    Denmark: (<Denmark />),
     France: (<France />),
+    Germany: (<Germany />),
     Hungary: (<Hungary />),
     Iceland: (<Iceland />),
     Israel: (<Israel />),    
     Italy: (<Italy />),
+    Japan: (<Japan />),
     Lithuania: (<Lithuania />),
     Netherlands: (<Netherlands />),
     Norway: (<Norway />),
